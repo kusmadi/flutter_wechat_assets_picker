@@ -13,6 +13,7 @@ const List<AssetPickerTextDelegate> assetPickerTextDelegates =
   AssetPickerTextDelegate(),
   EnglishAssetPickerTextDelegate(),
   HebrewAssetPickerTextDelegate(),
+  IndonesianAssetPickerTextDelegate(),
   GermanAssetPickerTextDelegate(),
   RussianAssetPickerTextDelegate(),
   JapaneseAssetPickerTextDelegate(),
@@ -350,6 +351,107 @@ class HebrewAssetPickerTextDelegate extends AssetPickerTextDelegate {
 
   @override
   String get sUnitAssetCountLabel => 'כמות';
+
+  @override
+  AssetPickerTextDelegate get semanticsTextDelegate {
+    if (Platform.isAndroid) {
+      return const EnglishAssetPickerTextDelegate();
+    }
+    return this;
+  }
+}
+
+/// [AssetPickerTextDelegate] implements with Hebrew.
+/// Lokalisasi Bahasa Indonesia
+class IndonesianAssetPickerTextDelegate extends AssetPickerTextDelegate {
+  const IndonesianAssetPickerTextDelegate();
+
+  @override
+  String get languageCode => 'id';
+
+  @override
+  String get confirm => 'Konfirmasi';
+
+  @override
+  String get cancel => 'Batal';
+
+  @override
+  String get edit => 'Ubah';
+
+  @override
+  String get gifIndicator => 'GIF';
+
+  @override
+  String get loadFailed => 'Gagal Memuat';
+
+  @override
+  String get original => 'Asli';
+
+  @override
+  String get preview => 'Pratinjau';
+
+  @override
+  String get select => 'Pilih';
+
+  @override
+  String get unSupportedAssetType => 'Jenis aset HEIC tidak didukung.';
+
+  @override
+  String get unableToAccessAll => 'Tidak dapat mengakses semua aset di perangkat';
+
+  @override
+  String get viewingLimitedAssetsTip =>
+      'Hanya lihat aset dan album yang dapat diakses oleh aplikasi.';
+
+  @override
+  String get changeAccessibleLimitedAssets =>
+      'Klik untuk memperbarui aset yang dapat diakses';
+
+  @override
+  String get accessAllTip => 'Aplikasi hanya dapat mengakses beberapa aset di perangkat. '
+      'Buka pengaturan sistem dan izinkan aplikasi mengakses semua aset di perangkat.';
+
+  @override
+  String get goToSystemSettings => 'Buka pengaturan sistem';
+
+  @override
+  String get accessLimitedAssets => 'Lanjutkan dengan akses terbatas';
+
+  @override
+  String get accessiblePathName => 'Aset yang dapat diakses';
+
+  @override
+  String get sTypeAudioLabel => 'Suara';
+
+  @override
+  String get sTypeImageLabel => 'Gambar';
+
+  @override
+  String get sTypeVideoLabel => 'Video';
+
+  @override
+  String get sTypeOtherLabel => 'Asset lain';
+
+  @override
+  String get sActionPlayHint => 'Mainkan';
+
+  @override
+  String get sActionPreviewHint => 'Pratinjau';
+
+  @override
+  String get sActionSelectHint => 'Pilih';
+
+  @override
+  String get sActionSwitchPathLabel => 'Beralih jalur';
+
+  @override
+  String get sActionUseCameraHint => 'Gunakan Kamera';
+
+  @override
+  String get sNameDurationLabel => 'Durasi';
+
+  @override
+  String get sUnitAssetCountLabel => 'Hitung';
 
   @override
   AssetPickerTextDelegate get semanticsTextDelegate {
